@@ -1,5 +1,9 @@
-var main = function() {
-  
-};
+!function() {
+  'use strict';
 
-document.addEventListener('DOMContentLoaded', main);
+  var main = function() {
+    
+  };
+
+  document.addEventListener('DOMContentLoaded', main);
+}();
