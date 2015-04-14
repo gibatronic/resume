@@ -1,10 +1,46 @@
 @import 'bourbon';
+@import url('http://fonts.googleapis.com/css?family=Roboto+Slab|Roboto');
 
 * {
   border-box: box-sizing;
 }
 
+h1, p {
+  margin: 0;
+}
+
+body {
+  margin: 2rem;
+}
+
+h1 {
+  font-family: 'Roboto Slab', serif;
+  font-size: 2rem;
+  font-weight: normal;
+}
+
 html {
   color: rgb(0, 0, 0);
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
+  letter-spacing: -0.025rem;
+  line-height: $golden;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+@media screen {
+  article {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 73.125rem;
+  }
+}
+
+@media screen and (max-width: 60rem) {
+  html {
+    font-size: 14px;
+  }
 }
