@@ -11,12 +11,56 @@
     <link href="style.css" rel="stylesheet">
   </head>
   <body>
-    <article itemscope itemtype="//schema.org/Person">
-      <meta itemprop="birthDate" content="1988-02-04">
-      <meta itemprop="url" content="//gibatronic.github.io/">
-      <h1 itemprop="name">Gibran Malheiros</h1>
-      <p itemprop="description">Web developer, curious about how stuff works.</p>
+    <article class="resume">
+      <header itemscope itemtype="//schema.org/Person" class="section section--header">
+        <meta itemprop="url" content="//gibatronic.github.io/">
+        <h1 itemprop="name">Gibran Malheiros</h1>
+        <p itemprop="description">Web developer based in <a href="https://goo.gl/maps/aCnWf" rel="external">Porto Alegre, Brazil</a>.</p>
+      </header>
+
+      <section class="section section--experience">
+        <h2>Experience</h2>
+
+        <ul class="section__list">
+          <li class="section__item">
+            <h3>Grupo RBS</h3>
+            <p class="section__period">April 2014 – Present</p>
+            <p>As full stack developer.</p>
+          </li>
+          <li class="section__item">
+            <h3>GVDASA</h3>
+            <p class="section__period">December 2013 - April 2014</p>
+            <p>As full stack developer.</p>
+          </li>
+          <li class="section__item">
+            <h3>Fitnoss</h3>
+            <p class="section__period">July 2012 - August 2013</p>
+            <p>As front end developer.</p>
+          </li>
+          <li class="section__item">
+            <h3>E-Storage</h3>
+            <p class="section__period">April 2010 - June 2012</p>
+            <p>As full stack developer.</p>
+          </li>
+          <li class="section__item">
+            <h3>Gad'Brivia</h3>
+            <p class="section__period">June 2008 - July 2009</p>
+            <p>As back end developer.</p>
+          </li>
+          <li class="section__item">
+            <h3>CR Sistemas e Web</h3>
+            <p class="section__period">November 2004 - February 2007</p>
+            <p>As full stack developer.</p>
+          </li>
+        </ul>
+      </section>
     </article>
+
+    <aside class="avatar">
+      <video autoplay crossorigin="anonymous" loop muted preload="auto" src="https://scontent.cdninstagram.com/hphotos-xap1/t50.2886-16/10951152_592895130855488_1631581260_s.mp4" class="avatar__video"></video>
+      <canvas width="240" height="240" class="avatar__bridge"></canvas>
+      <canvas width="960" height="960" class="avatar__display"></canvas>
+    </aside>
 
     <script src="script.js"></script>
   </body>
