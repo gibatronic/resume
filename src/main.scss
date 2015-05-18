@@ -95,3 +95,15 @@ ul {
 .section__period {
   color: rgb(77, 77, 77);
 }
+
+@media print {
+  .avatar {
+    display: none;
+  }
+
+  .resume {
+    position: static;
+    top: auto;
+    left: auto;
+  }
+}
