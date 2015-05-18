@@ -47,7 +47,6 @@
       frameNew.data[p + 3] = a;
     }
 
-    console.log(frameNew);
     display.putImageData(frameNew, 0, 0, 0, 0, 960, avatar.offsetHeight);
   };
 
