@@ -12,12 +12,14 @@
 
   var main = function() {
     avatar = $('.avatar');
-    bridge = $('.avatar__bridge').getContext('2d');
-    display = $('.avatar__display').getContext('2d');
+    bridge = $('.avatar__bridge').getContext('2d', { alpha: false });
+    display = $('.avatar__display');
     video = $('.avatar__video');
 
     bridge.imageSmoothingEnabled = false;
-    display.imageSmoothingEnabled = false;
+
+    WebGL2D.enable(display);
+    display = display.getContext('webgl-2d');
 
     video.addEventListener('play', processAvatarVideo);
   };
@@ -26,7 +28,7 @@
     requestAnimationFrame(processAvatarVideo);
     bridge.drawImage(video, 0, 0, 240, 240);
 
-    var frameNew = bridge.createImageData(960, 960);
+    var frameNew = display.createImageData(960, 960);
     var frameOld = bridge.getImageData(0, 0, 240, 240);
 
     for (var index = 0, length = frameOld.data.length; index < length; index++) {
@@ -47,7 +49,7 @@
       frameNew.data[p + 3] = a;
     }
 
-    display.putImageData(frameNew, 0, 0, 0, 0, 960, avatar.offsetHeight);
+    display.putImageData(frameNew, 0, 0, 0, 0, Math.min(960, avatar.offsetWidth), Math.min(960, avatar.offsetHeight));
   };
 
   document.addEventListener('DOMContentLoaded', main);
