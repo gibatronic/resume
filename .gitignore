@@ -1,5 +1,4 @@
 .DS_Store
 Desktop.ini
-etc/*
-!etc/avatar.jpg
+etc/bourbon
 Thumbs.db
