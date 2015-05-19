@@ -1,61 +1,62 @@
 require 'bundler/setup'
 require 'htmlcompressor'
 require 'nokogiri'
+require 'sass'
 require 'uglifier'
-
-SCRIPT_IN = 'src/main.js'
-SCRIPT_OUT = 'script.js'
-
-STYLE_IN = 'src/main.scss'
-STYLE_OUT = 'style.css'
 
 TEMPLATE_IN = 'src/main.html'
 TEMPLATE_OUT = 'index.html'
-
-desc 'generate the template from the source'
-task build: [:script, :style, :template]
 
 task :install do
   `bourbon install --path=etc`
 end
 
-task :script do
-  open SCRIPT_OUT, 'w' do |file|
-    uglifier = Uglifier.new
-    file.write uglifier.compile File.read SCRIPT_IN
-  end
-end
-
-task :style do
-  `sass --load-path etc/bourbon --no-cache --style compressed --sourcemap=none #{STYLE_IN} #{STYLE_OUT}`
-end
-
-task :template do
+desc 'generate the template from the source'
+task :build do
   open TEMPLATE_OUT, 'w' do |file|
     compressor = HtmlCompressor::Compressor.new remove_intertag_spaces: true
+    scripts = ''
+    styles = ''
     template = Nokogiri::HTML File.read TEMPLATE_IN
 
     template.css('link[rel="stylesheet"]').each do |style|
       asset = style['href']
       content = File.read asset
+      styles << content.strip
+      style.remove
+    end
+
+    unless styles.empty?
+      options = {
+        cache: false,
+        load_paths: ['.', 'etc/bourbon'],
+        sourcemap: false,
+        style: :compressed,
+        syntax: :scss
+      }
 
       embed = Nokogiri::XML::Node.new 'style', template
-      embed.content = content.strip
+      sass = Sass::Engine.new styles, options
 
-      style.add_next_sibling embed
-      style.remove
-
-      File.delete asset
+      embed.content = sass.render.strip
+      template.at_css('head').add_child embed
     end
 
     template.css('script[src]').each do |script|
       asset = script['src']
       content = File.read asset
+      scripts << content.strip
+      script.remove
+    end
 
-      script.content = content.strip
-      script.remove_attribute 'src'
+    unless scripts.empty?
+      options = {
+        comments: :none
+      }
 
-      File.delete asset
+      embed = Nokogiri::XML::Node.new 'script', template
+      embed.content = Uglifier.compile(scripts, options).strip
+      template.at_css('body').add_child embed
     end
 
     file.write compressor.compress template.to_html
