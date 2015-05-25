@@ -5,42 +5,170 @@
   border-box: box-sizing;
 }
 
-h1, p {
+a:link, a:visited, a:hover, a:active {
+  transition: color 0.1s;
+  text-decoration: none;
+}
+
+a:link, a:visited, a:active {
+  color: rgb(41, 128, 185);
+}
+
+a:hover {
+  color: rgb(52, 152, 219);
+}
+
+body, h1, h2, h3, h4, p, ul {
   margin: 0;
 }
 
-body {
-  margin: 2rem;
-}
-
-h1 {
-  font-family: 'Roboto Slab', serif;
-  font-size: 2rem;
+h1, h2, h3, h4 {
   font-weight: normal;
 }
 
+h1, h2 {
+  font-family: 'Roboto Slab', serif;
+}
+
+h1 {
+  font-size: 2rem;
+  letter-spacing: -0.05rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 1rem;
+}
+
 html {
-  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  color: rgb(51, 51, 51);
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
-  letter-spacing: -0.025rem;
-  line-height: $golden;
+  letter-spacing: -0.03125rem;
+  line-height: 1;
 }
 
-p {
-  margin-bottom: 1rem;
+ul {
+  list-style-type: none;
+  padding: 0;
 }
 
-@media screen {
-  article {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 73.125rem;
+.experience {
+  &__company {
+    position: absolute;
+    top: 0.1875rem;
+    left: -2.125rem;
+    color: darken(rgb(127, 140, 141), 10%);
+    text-transform: uppercase;
+    @include transform(translateX(-100%));
+  }
+
+  &__description {
+    line-height: $golden;
+  }
+
+  &__description {
+
+  }
+
+  &__period {
+    position: absolute;
+    top: 1.9375rem;
+    left: -2.125rem;
+    color: darken(rgb(127, 140, 141), 10%);
+    font-size: 0.75rem;
+    letter-spacing: 0;
+    @include transform(translateX(-100%));
+  }
+
+  &__position {
+    position: relative;
+    padding-bottom: 2rem;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgb(255, 255, 255);
+      border: 2px solid rgb(127, 140, 141);
+      border-radius: 50%;
+      content: '';
+      display: block;
+      @include transform(translate(-1.5625rem, 0.125rem));
+      width: 0.75rem;
+      height: 0.75rem;
+    }
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgb(127, 140, 141);
+      content: '';
+      display: block;
+      @include transform(translate(-1.125rem, 0.625rem));
+      width: 2px;
+      height: 100%;
+    }
+
+    &:last-child::before {
+      display: none;
+    }
+  }
+
+  &__positions {
+    padding-left: 13.125rem;
+  }
+
+  &__title {
+    margin-bottom: 0.1875rem;
   }
 }
 
-@media screen and (max-width: 60rem) {
+.header {
+  &__name {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.section {
+  margin: 2rem;
+}
+
+@media (max-width: 60rem) {
   html {
     font-size: 14px;
+  }
+}
+
+@media (max-width: 35rem) {
+  .experience {
+    &__company {
+      position: static;
+      @include transform(translateX(0%));
+    }
+
+    &__period {
+      position: static;
+      @include transform(translateX(0%));
+    }
+
+    &__position {
+      &::before {
+        display: none;
+      }
+    }
+
+    &__positions {
+      padding-left: 0;
+    }
   }
 }

@@ -11,12 +11,53 @@
     <link href="src/main.scss" rel="stylesheet">
   </head>
   <body>
-    <article itemscope itemtype="//schema.org/Person">
+    <header itemscope itemtype="//schema.org/Person" class="section section--header">
       <meta itemprop="birthDate" content="1988-02-04">
       <meta itemprop="url" content="//gibatronic.github.io/">
-      <h1 itemprop="name">Gibran Malheiros</h1>
-      <p itemprop="description">Web developer, curious about how stuff works.</p>
-    </article>
+      <h1 itemprop="name" class="header__name">Gibran Malheiros</h1>
+      <p itemprop="description" class="header__about">Web developer based in <a href="https://goo.gl/maps/aCnWf" rel="external" target="_blank">Porto Alegre, Brazil</a>.</p>
+    </header>
+
+    <section class="section section--experience">
+      <ul class="experience__positions">
+        <li class="experience__position">
+          <h3 class="experience__title">Full stack developer</h3>
+          <h4 class="experience__company">Grupo RBS</h4>
+          <p class="experience__period">April 2014 - Present</p>
+          <p class="experience__description">Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </li>
+        <li class="experience__position">
+          <h3 class="experience__title">Full stack developer</h3>
+          <h4 class="experience__company">GVDASA</h4>
+          <p class="experience__period">December 2013 - April 2014</p>
+          <p class="experience__description">Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec ullamcorper nulla non metus auctor fringilla.</p>
+        </li>
+        <li class="experience__position">
+          <h3 class="experience__title">Front end developer</h3>
+          <h4 class="experience__company">Fitnoss</h4>
+          <p class="experience__period">July 2012 - August 2013</p>
+          <p class="experience__description">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+        </li>
+        <li class="experience__position">
+          <h3 class="experience__title">Full stack developer</h3>
+          <h4 class="experience__company">E-Storage</h4>
+          <p class="experience__period">April 2010 - June 2012</p>
+          <p class="experience__description">Aenean lacinia bibendum nulla sed consectetur. Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </li>
+        <li class="experience__position">
+          <h3 class="experience__title">Back end developer</h3>
+          <h4 class="experience__company">Brivia</h4>
+          <p class="experience__period">June 2008 - July 2009</p>
+          <p class="experience__description">Maecenas sed diam eget risus varius blandit sit amet non magna. Curabitur blandit tempus porttitor. Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+        </li>
+        <li class="experience__position">
+          <h3 class="experience__title">Full stack developer</h3>
+          <h4 class="experience__company">CR Sistemas e Web</h4>
+          <p class="experience__period">November 2004 - February 2007</p>
+          <p class="experience__description">Donec sed odio dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit sit amet non magna. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </li>
+      </ul>
+    </section>
 
     <script src="src/main.js"></script>
   </body>
