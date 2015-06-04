@@ -5,13 +5,13 @@
   border-box: box-sizing;
 }
 
-a:link, a:visited, a:hover, a:active {
-  transition: color 0.1s;
-  text-decoration: none;
-}
-
 a:link, a:visited, a:active {
   color: rgb(41, 128, 185);
+}
+
+a:link {
+  transition: color 0.1s;
+  text-decoration: none;
 }
 
 a:hover {
