@@ -146,16 +146,18 @@ ul {
 
     &::after {
       position: absolute;
-      top: 0.025rem;
-      left: 11.525rem;
+      top: 1rem;
+      left: 12.5rem;
+      background-color: rgb(255, 255, 255);
       background-image: url('etc/avatar.jpg');
       background-size: cover;
       border-radius: 50%;
       box-shadow: 0 0 0 2px rgb(255, 255, 255), 0 0 0 4px $color-gray;
       content: '';
       display: block;
-      width: 32px;
-      height: 32px;
+      @include transform(translate(-50%, -50%));
+      width: 2rem;
+      height: 2rem;
     }
 
     &::before {
