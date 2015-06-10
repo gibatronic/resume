@@ -1,6 +1,8 @@
 @import 'bourbon';
 @import url('http://fonts.googleapis.com/css?family=Roboto+Slab|Roboto');
 
+$color-gray: rgb(127, 140, 141);
+
 * {
   border-box: box-sizing;
 }
@@ -65,8 +67,8 @@ ul {
   &__company {
     position: absolute;
     top: 0.1875rem;
-    left: -2.125rem;
-    color: darken(rgb(127, 140, 141), 10%);
+    left: -3.125rem;
+    color: darken($color-gray, 10%);
     text-transform: uppercase;
     @include transform(translateX(-100%));
   }
@@ -75,15 +77,11 @@ ul {
     line-height: $golden;
   }
 
-  &__description {
-
-  }
-
   &__period {
     position: absolute;
     top: 1.9375rem;
-    left: -2.125rem;
-    color: darken(rgb(127, 140, 141), 10%);
+    left: -3.125rem;
+    color: darken($color-gray, 10%);
     font-size: 0.75rem;
     letter-spacing: 0;
     @include transform(translateX(-100%));
@@ -91,18 +89,18 @@ ul {
 
   &__position {
     position: relative;
-    padding-bottom: 2rem;
+    padding-bottom: 3rem;
 
     &::after {
       position: absolute;
       top: 0;
       left: 0;
       background-color: rgb(255, 255, 255);
-      border: 2px solid rgb(127, 140, 141);
+      border: 2px solid $color-gray;
       border-radius: 50%;
       content: '';
       display: block;
-      @include transform(translate(-1.5625rem, 0.125rem));
+      @include transform(translate(-2.0625rem, 0.125rem));
       width: 0.75rem;
       height: 0.75rem;
     }
@@ -111,10 +109,10 @@ ul {
       position: absolute;
       top: 0;
       left: 0;
-      background-color: rgb(127, 140, 141);
+      background-color: $color-gray;
       content: '';
       display: block;
-      @include transform(translate(-1.125rem, 0.625rem));
+      @include transform(translate(-1.625rem, 0.625rem));
       width: 2px;
       height: 100%;
     }
@@ -125,7 +123,7 @@ ul {
   }
 
   &__positions {
-    padding-left: 13.125rem;
+    padding-left: 14.125rem;
   }
 
   &__title {
@@ -140,7 +138,38 @@ ul {
 }
 
 .section {
-  margin: 2rem;
+  position: relative;
+  margin: 4rem;
+
+  &--header {
+    padding-left: 14.125rem;
+
+    &::after {
+      position: absolute;
+      top: 0.025rem;
+      left: 11.525rem;
+      background-image: url('etc/avatar.jpg');
+      background-size: cover;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px rgb(255, 255, 255), 0 0 0 4px $color-gray;
+      content: '';
+      display: block;
+      width: 32px;
+      height: 32px;
+    }
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 13.625rem;
+      background-color: $color-gray;
+      content: '';
+      display: block;
+      @include transform(translate(-1.125rem, 2rem));
+      width: 2px;
+      @include calc(height, '100% + 2.25rem');
+    }
+  }
 }
 
 @media print {
